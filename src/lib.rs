@@ -60,7 +60,7 @@ where
 {
     ConnectAsync {
         inner: MidHandshake {
-            inner: Some(ClientHandshake::start(stream, request.into()).handshake())
+            inner: Some(ClientHandshake::start(stream, request.into(), None).handshake())
         }
     }
 }
@@ -117,14 +117,14 @@ impl<S> WebSocketStream<S> {
     /// Convert a raw socket into a WebSocketStream without performing a
     /// handshake.
     pub fn from_raw_socket(stream: S, role: Role) -> Self {
-        let ws = WebSocket::from_raw_socket(stream, role);
+        let ws = WebSocket::from_raw_socket(stream, role, None);
         WebSocketStream { inner: ws }
     }
 
     /// Convert a raw socket into a WebSocketStream without performing a
     /// handshake.
     pub fn from_partially_read(stream: S, part: Vec<u8>, role: Role) -> Self {
-        let ws = WebSocket::from_partially_read(stream, part, role);
+        let ws = WebSocket::from_partially_read(stream, part, role, None);
         WebSocketStream { inner: ws }
     }
 }

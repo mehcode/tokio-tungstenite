@@ -20,7 +20,9 @@ stream = ["bytes"]
 futures = "0.1.17"
 
 [dependencies.tungstenite]
-version = "0.5.3"
+# version = "0.5.3"
+git = "https://github.com/snapview/tungstenite-rs"
+rev = "3e02fe53516adca6617c0b6df32a5b09ba264729"
 default-features = false
 
 [dependencies.bytes]
@@ -29,7 +31,7 @@ version = "0.4.6"
 
 [dependencies.native-tls]
 optional = true
-version = "0.1.5"
+version = "0.2"
 
 [dependencies.tokio-dns-unofficial]
 optional = true
@@ -48,6 +50,4 @@ tokio-core = "0.1.12"
 url = "1.6.0"
 
 [patch.crates-io]
-tokio-tls = { git = "https://github.com/aep/tokio-tls.git", rev = "acbe9a327ad16506ad30c8f3df0c1f5302271384" }
-native-tls = { git = "https://github.com/sfackler/rust-native-tls.git" }
-tungstenite = { git = "https://github.com/snapview/tungstenite-rs.git" }
+tokio-tls = { git = "https://github.com/mehcode/tokio-tls.git", rev = "df7ffe315986d33b2c16ce23524c72ccb710eac4" }
